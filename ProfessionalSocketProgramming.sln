@@ -5,9 +5,38 @@ VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BA475D5C-AABA-4D7D-94EA-D28CCA9392B2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transmission", "src\Transmission\Transmission.csproj", "{259292F5-49E4-4F44-AF41-8AD93A722D73}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listener", "src\Listener\Listener.csproj", "{DD38700D-36C5-4419-BD14-9097AEEE92D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTransfer", "src\ClientTransfer\ClientTransfer.csproj", "{D6872B22-574F-4C91-AD35-A473F94AFE9C}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{259292F5-49E4-4F44-AF41-8AD93A722D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{259292F5-49E4-4F44-AF41-8AD93A722D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{259292F5-49E4-4F44-AF41-8AD93A722D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{259292F5-49E4-4F44-AF41-8AD93A722D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD38700D-36C5-4419-BD14-9097AEEE92D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD38700D-36C5-4419-BD14-9097AEEE92D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD38700D-36C5-4419-BD14-9097AEEE92D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD38700D-36C5-4419-BD14-9097AEEE92D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6872B22-574F-4C91-AD35-A473F94AFE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6872B22-574F-4C91-AD35-A473F94AFE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6872B22-574F-4C91-AD35-A473F94AFE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6872B22-574F-4C91-AD35-A473F94AFE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{259292F5-49E4-4F44-AF41-8AD93A722D73} = {BA475D5C-AABA-4D7D-94EA-D28CCA9392B2}
+		{DD38700D-36C5-4419-BD14-9097AEEE92D1} = {BA475D5C-AABA-4D7D-94EA-D28CCA9392B2}
+		{D6872B22-574F-4C91-AD35-A473F94AFE9C} = {BA475D5C-AABA-4D7D-94EA-D28CCA9392B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28452BC4-E8F3-4C26-8097-5E3433ECBD72}
