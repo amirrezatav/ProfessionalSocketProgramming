@@ -8,9 +8,15 @@ namespace Transmission
         private const int _bufferSize = 1024 * 5;
         private byte[] _buffer;
         private ISocket _socket;
-        public Transfer(ISocket socket, bool canTransfer)
+        private ProcessPacket _processPacket;
+
+        public Transfer(ISocket socket, bool canTransfer
+            , Message_Handler message_Handler)
         {
             _socket = socket;
+            _processPacket = new ProcessPacket(message_Handler);
+            _buffer = new byte[_bufferSize];
+
         }
         public void Send(byte[] buffer)
         {
@@ -22,7 +28,7 @@ namespace Transmission
         {
             _socket.TransferSocket.BeginReceive(_buffer, 0, _bufferSize, SocketFlags.Peek, receiveCallback, null);
         }
-        private void receiveCallback(IAsyncResult ar)
+        private async void receiveCallback(IAsyncResult ar)
         {
             try
             {
@@ -30,7 +36,7 @@ namespace Transmission
                 if (ReceiveSize >= 4)
                 {
                     _socket.TransferSocket.Receive(_buffer);
-                    ProcessPacket.Process(_buffer);
+                    await _processPacket.Process(_buffer);
                 }
                 RunReceive();
             }

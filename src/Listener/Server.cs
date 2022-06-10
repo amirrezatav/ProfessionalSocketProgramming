@@ -44,6 +44,7 @@ namespace Listener
         {
             _accepteHandler = handler;
         }
+
         public void Start(string ip , int port)
         {
             if (_isRunning)
@@ -64,8 +65,12 @@ namespace Listener
                 Socket sck = _serverSocket.EndAccept(ar);
                 if (sck != null)
                 {
-                    TransferSocket = sck;
-                    _accepteHandler(this, new AcceptedSocket(sck));
+                    if (TransferSocket == null || !TransferSocket.Connected)
+                    {
+                        TransferSocket = sck;
+                        _accepteHandler(this, new AcceptedSocket(sck));
+                    }
+                        
                     // return;
                 }
             }
@@ -83,13 +88,18 @@ namespace Listener
             if (!_isRunning)
                 return;
 
-            _serverSocket.Close();
+            Close();
+
             _isRunning = false;
         }
 
         public void Close()
         {
-            throw new NotImplementedException();
+            if (TransferSocket != null)
+                TransferSocket.Close();
+
+            if (_serverSocket != null)
+                _serverSocket.Close();
         }
     }
 }

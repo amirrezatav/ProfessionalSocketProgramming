@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listener", "src\Listener\Li
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientTransfer", "src\ClientTransfer\ClientTransfer.csproj", "{D6872B22-574F-4C91-AD35-A473F94AFE9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{8EF9EBFA-5D18-4B97-9432-705A836C895D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{D6872B22-574F-4C91-AD35-A473F94AFE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6872B22-574F-4C91-AD35-A473F94AFE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6872B22-574F-4C91-AD35-A473F94AFE9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EF9EBFA-5D18-4B97-9432-705A836C895D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF9EBFA-5D18-4B97-9432-705A836C895D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF9EBFA-5D18-4B97-9432-705A836C895D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF9EBFA-5D18-4B97-9432-705A836C895D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{259292F5-49E4-4F44-AF41-8AD93A722D73} = {BA475D5C-AABA-4D7D-94EA-D28CCA9392B2}
 		{DD38700D-36C5-4419-BD14-9097AEEE92D1} = {BA475D5C-AABA-4D7D-94EA-D28CCA9392B2}
 		{D6872B22-574F-4C91-AD35-A473F94AFE9C} = {BA475D5C-AABA-4D7D-94EA-D28CCA9392B2}
+		{8EF9EBFA-5D18-4B97-9432-705A836C895D} = {BA475D5C-AABA-4D7D-94EA-D28CCA9392B2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28452BC4-E8F3-4C26-8097-5E3433ECBD72}

@@ -31,6 +31,7 @@ namespace ClientTransfer
             _disconnectedHandler = disconnectedHandler;
             _clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
         }
+
         public void Connect(string serverIp , int serverPort , ConnectedHandler connectedHandler)
         {
             if (_isRunning)
