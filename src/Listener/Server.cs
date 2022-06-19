@@ -45,6 +45,23 @@ namespace Listener
             _accepteHandler = handler;
         }
 
+
+        public static Task<List<string>> GetAllIpAsync()
+        {
+            List<string> list = new List<string>();
+            string myHost = System.Net.Dns.GetHostName();
+
+            System.Net.IPHostEntry myIPs = System.Net.Dns.GetHostEntry(myHost);
+
+            foreach (var item in myIPs.AddressList)
+            {
+                if(item.AddressFamily == System.Net.Sockets.AddressFamily.InterNetwork)
+                    list.Add(item.ToString());
+            }
+
+            return Task.FromResult(list);
+        }
+
         public void Start(string ip , int port)
         {
             if (_isRunning)
@@ -56,6 +73,15 @@ namespace Listener
             _serverSocket.Listen(1);
             _isRunning = true;
             _serverSocket.BeginAccept(callback,null);
+        }
+        public void StartReAccept(SocketAcceptedHandler handler)
+        {
+            _serverSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            _serverSocket.Bind(new IPEndPoint(IPAddress.Parse(_serverIp), _serverPort));
+            _serverSocket.Listen(1);
+            _isRunning = true;
+            _serverSocket.BeginAccept(callback, null);
+            _accepteHandler = handler;
         }
 
         private void callback(IAsyncResult ar)
@@ -69,14 +95,14 @@ namespace Listener
                     {
                         TransferSocket = sck;
                         _accepteHandler(this, new AcceptedSocket(sck));
+                        return;
                     }
-                        
-                    // return;
                 }
             }
-            catch (Exception ex)
+            catch 
             {
-                throw new Exception($"Error in client acception. \nerror : {ex.Message}");
+                _isRunning = false;
+                Close();
             }
             if (_isRunning)
                 _serverSocket.BeginAccept(callback, null);
@@ -96,10 +122,16 @@ namespace Listener
         public void Close()
         {
             if (TransferSocket != null)
+            {
                 TransferSocket.Close();
+                TransferSocket.Dispose();
+            }
 
             if (_serverSocket != null)
+            {
                 _serverSocket.Close();
+                _serverSocket.Dispose();
+            }
         }
     }
 }

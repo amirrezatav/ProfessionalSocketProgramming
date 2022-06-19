@@ -21,5 +21,11 @@ namespace Listener
             Port = ((IPEndPoint)Accepted.RemoteEndPoint).Port;
             EndPoint = (IPEndPoint)Accepted.RemoteEndPoint;
         }
+        public override string ToString()
+        {
+            var res = $"Ip : {Address.ToString()}\n" +
+                $"Port : {Port}";
+            return res;
+        }
     }
 }

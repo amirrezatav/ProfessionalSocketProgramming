@@ -10,7 +10,7 @@ namespace Transmission.Packet
     {
         Message,
         FileInfo,
-        FileBody
-
+        FileBody,
+        Start
     }
 }

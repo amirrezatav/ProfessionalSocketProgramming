@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 namespace Transmission.Packet
 {
     /// <summary>
-    /// Header Packet - 9 byte
+    /// Header Packet - 5 byte
     /// </summary>
     /// 
     [Serializable]
     public class Head
     {
-        /// <summary>
-        /// Packet Size
-        /// </summary>
-        public int Size { get; set; } // 4 byte
         /// <summary>
         /// Packet Id
         /// </summary>
